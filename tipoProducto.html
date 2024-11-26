@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style-generaly.css">
+    <title>Tipo Productos</title>
+</head>
+
+<body>
+    <header id="menu-encabezado"></header>
+
+    <main class="container">
+        <div class="my-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Buscas por nombre del producto">
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <label for="categoryFilter">Categorias:</label>
+                <select id="categoryFilter" class="form-control">
+                    <option value="">Todas las categorias</option>
+                    <option value="smartphones">Smartphones</option>
+                    <option value="consoles">Consoles</option>
+                    <option value="laptops">Laptops</option>
+                    <option value="otros">Otros</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="priceFilter">Precio maximo:</label>
+                <input type="range" id="priceFilter" class="form-range" min="0" max="5000000" step="500000">
+                <span id="priceDisplay">Precio maximo: $5000000</span>
+            </div>
+        </div>
+    
+        <!-- Contenedor para el título y las tarjetas generadas por categoría -->
+        <div id="contenedor-titulo" class="my-3 text-center"></div>
+        <div class="row" id="card-movie"></div>
+    
+        <!-- Contenedor para los productos filtrados -->
+        <div class="row" id="productList"></div>
+    </main>
+    
+
+    <footer class="page-footer font-small unique-color-dark pt-4 footer-principal" id="footer-principal"></footer>
+
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/header-footer.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="script/filterProducts.js" type="module"></script>
+</body>
+
+</html>

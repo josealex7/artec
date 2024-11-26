@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style-generaly.css">
+    <link rel="stylesheet" href="style/login.css">
+</head>
+<body>
+    <header id="menu-encabezado"></header>
+    <main class="pb-4">
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Columna del formulario de registro -->
+                <div class="col-md-6">
+                    <form id="registerForm" class="form-container bg-white">
+                        <h2 class="text-center mb-4">Registrarse</h2>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="username" placeholder="Ingrese su usuario" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Registrar</button>
+                    </form>
+                </div>
+    
+                <!-- Columna de la imagen del registro -->
+                <div class="col-md-6">
+                    <img src="images/registo-imagen.png" alt="Imagen Promocional Registro" class="img-fluid rounded" style="max-height: 500px;">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer font-small unique-color-dark pt-4 footer-principal" id="footer-principal"></footer>
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/index.js"></script>
+    <script src="script/header-footer.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        // Script para manejar el registro y guardar en localStorage
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const estado = 0;
+
+            // Validación sencilla
+            if (username === '' || password === '') {
+                swal('Error', 'Todos los campos son requeridos', 'error');
+                return;
+            }
+
+            // Guardar en localStorage
+            const userData = { username, password, estado };
+            localStorage.setItem('user', JSON.stringify(userData));
+
+            // Notificar al usuario
+            swal('Correcto', 'Usuario registrado exitosamente!', 'success').then(() => {
+                // Redireccionar o limpiar formulario
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+</html>
