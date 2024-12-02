@@ -18,7 +18,7 @@ const encabezado = () => {
 
         <!-- Carrito o Botones -->
         <div class="contenedor-botones">
-            ${storedUser.estado ? `
+            ${storedUser && storedUser.estado ? `
                 <button class="btn"  onclick="carritoDetalle()">
                     <img src="https://img.icons8.com/dotty/40/000000/shopping-cart.png" alt="Carrito">
                     ${cantidadProductos}

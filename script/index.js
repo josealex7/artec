@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const storedUser = JSON.parse(localStorage.getItem('user'));
 
-    if (!storedUser) {
+    if (!storedUser.estado) {
         // Si no está logueado, mostrar el mensaje
         document.getElementById('mensaje-login').style.display = 'block';
     }
